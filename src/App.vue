@@ -21,7 +21,7 @@
   <button type="button" @click="AddUser()">Добавить пользователя</button>
   <!-- <p v-if="users.length">{{ users }}</p> -->
   <ul>
-    <li v-for="(item, index) in users" :key="index" :class="{redcolor: item.red}"><b>{{ item.name }}</b> - Возраст: {{ item.age }} - Книг: {{ item.books }}</li>
+    <li v-for="(item, index) in users" :key="index" :class="{redcolor: item.books == 0||item.books > 10}"><b>{{ item.name }}</b> - Возраст: {{ item.age }} - Книг: {{ item.books }}</li>
   </ul>
 </template>
 
@@ -59,13 +59,12 @@ export default {
       this.Count--
     },
     AddUser() {
-      if (this.userBooks == 0||this.userBooks > 10) {this.userRed = true}
-        else this.userRed = false;
+      // if (this.userBooks == 0||this.userBooks > 10) {this.userRed = true}
+      //   else this.userRed = false;
       this.users.push({
         name: this.userName,
         age: this.userAge,
-        books: this.userBooks,
-        red: this.userRed   
+        books: this.userBooks
         });
     }
   }
